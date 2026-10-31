@@ -66,8 +66,6 @@ h1 > span:first-of-type { color: var(--accent); }
 .section-heading .eyebrow { color: var(--muted); }
 .section-heading h2 { font-size: 29px; font-weight: 600; margin: 13px 0 0; letter-spacing: -.5px; }
 .heading-dot { color: #cb7da0; padding-left: 5px; }
-.section-heading-row { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
-.section-description { color: var(--muted); font-size: 12px; line-height: 1.8; margin: 0; }
 .accounts-section, .projects-section, .awards-section, .oc-section, .interests-section { border-top: 1px solid var(--line); padding: 52px 0 58px; }
 .accounts-section .social-links { padding: 27px 20px; margin: 27px 0 20px; border: 1px solid #f0dce6; border-radius: 12px; background: #fff; }
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 28px; }
@@ -118,7 +116,6 @@ h1 > span:first-of-type { color: var(--accent); }
 .character-sheet > figcaption > span:first-child { font-size: 9px; letter-spacing: 2px; }
 .sticker-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 48px; }
 .sticker-heading > h3 { font-size: 20px; font-weight: 500; margin: 0; }
-.sticker-heading > span { color: var(--muted); font-size: 10px; }
 .sticker-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 22px; }
 .sticker-card { background: #fff; border: 1px solid #f1dde7; border-radius: 10px; margin: 0; overflow: hidden; }
 .sticker-card > a { display: grid; place-items: center; padding: 18px 22px 8px; background: radial-gradient(ellipse at center, #fff2f8, #fff 70%); }
@@ -175,8 +172,6 @@ h1 > span:first-of-type { color: var(--accent); }
   .profile-art { width: min(100% - 12px, 430px); justify-self: center; padding: 22px; }
   .art-canvas { height: 345px; }
   .section-heading h2 { font-size: 26px; margin-top: 7px; }
-  .section-heading-row { align-items: start; flex-direction: column; gap: 12px; }
-  .section-description { font-size: 11px; }
   .accounts-section, .projects-section, .awards-section, .oc-section, .interests-section { padding: 36px 0 42px; }
   .accounts-section .social-links { padding: 22px 12px; }
   .project-grid { grid-template-columns: 1fr; gap: 17px; margin-top: 23px; }
@@ -198,7 +193,6 @@ h1 > span:first-of-type { color: var(--accent); }
   .character-sheet > figcaption { padding: 15px 18px; }
   .sticker-heading { margin-top: 34px; gap: 12px; align-items: start; }
   .sticker-heading > h3 { font-size: 18px; }
-  .sticker-heading > span { font-size: 9px; max-width: 100px; text-align: right; line-height: 1.8; }
   .sticker-gallery { gap: 9px; margin-top: 18px; }
   .sticker-card > a { padding: 8px 4px 0; }
   .sticker-card > figcaption { padding: 9px 8px 12px; font-size: 10px; gap: 6px; }
