@@ -42,7 +42,15 @@
 |---|---|---|
 | 2026年中国大学生程序设计竞赛（CCPC）全国邀请赛（南昌） | 团队铜奖 | [查看证书](./assets/awards/ccpc-nanchang-2026-bronze.jpg) |
 | 2026年国际大学生程序设计竞赛（ICPC）全国邀请赛（西安） | 团队铜奖 | [查看证书](./assets/awards/icpc-shaanxi-2026-bronze.png) |
+| 2026年中国高校计算机大赛—团体程序设计天梯赛全国总决赛 | 团队三等奖 | [查看团队证书](./assets/awards/gplt-2026-team-third/team-certificate.png) |
 | 2026年国际大学生程序设计竞赛（ICPC）全国邀请赛（深圳） | 团队铜奖 | [查看证书](./assets/awards/icpc-shenzhen-2026-bronze.png) |
+
+<details>
+<summary>天梯赛团队奖项下的个人奖项</summary>
+
+杨家斌获得全国总决赛个人三等奖。[查看个人证书](./assets/awards/gplt-2026-team-third/individual/yang-jiabin-third.png)。
+
+</details>
 
 按城市统一显示的“西安”对应官方赛名中的“陕西”。[比赛名称核对和图片来源](./assets/awards/README.md)。
 
@@ -53,6 +61,8 @@
 五个账号在网页中统一显示为可点击的网站图标，下方标注网站名称。
 
 网页展示顺序为：个人基本信息 → 非游戏账号 → GitHub 项目 → 获奖经历 → OC 介绍 → 兴趣爱好。获奖经历按年级分组；游戏账号放在有独立标题的兴趣爱好区块中。基本信息直接展示在首页，不再设置重复的“关于我”区块。栏目和表情包不使用数字序号。
+
+天梯赛只作为一项比赛展示，个人奖项嵌套在对应团队卡片内，默认收起，点击“个人奖项”可以展开或收起。个人证书图片位于团队奖项目录下的 `individual/` 子目录。
 
 - `index.html`：首页结构与个人资料。
 - `style.css`：颜色、字体和电脑 / 手机布局。

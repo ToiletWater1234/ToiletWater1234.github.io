@@ -88,7 +88,7 @@ h1 > span:first-of-type { color: var(--accent); }
 .project-link > span { margin-left: 3px; font-size: 17px; }
 .award-grade-title { display: flex; align-items: center; gap: 18px; margin: 29px 0 20px; font-size: 20px; font-weight: 500; color: #975774; }
 .award-grade-title::after { content: ""; height: 1px; flex: 1; background: #efdde5; }
-.awards-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.awards-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 20px; }
 .award-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid #ecd8e2; border-radius: 11px; overflow: hidden; background: #fff; }
 .certificate-preview { display: block; background: #fffdfb; border-bottom: 1px solid #f0e2e8; padding: 12px; }
 .certificate-preview > img { display: block; width: 100%; height: auto; aspect-ratio: 1.414; object-fit: contain; transition: opacity .2s; }
@@ -102,6 +102,23 @@ h1 > span:first-of-type { color: var(--accent); }
 .award-team { font-size: 10px; color: var(--muted); line-height: 1.8; margin: 0 0 19px; }
 .award-source { display: inline-flex; align-self: start; gap: 9px; margin-top: auto; padding-top: 6px; font-size: 10px; color: #9c5f7c; }
 .award-source:hover { color: var(--accent); }
+.individual-awards { margin: 0 0 19px; border: 1px solid #efd6e2; border-radius: 7px; background: #fff9fc; }
+.individual-awards > summary { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 12px; cursor: pointer; color: #975774; font-size: 11px; list-style: none; }
+.individual-awards > summary::-webkit-details-marker { display: none; }
+.individual-awards > summary::marker { content: ""; }
+.individual-awards > summary:focus-visible { outline: 3px solid #d276a0; outline-offset: 3px; border-radius: 5px; }
+.individual-awards > summary > span:first-child { flex: 1; }
+.individual-awards .expand-label, .individual-awards .collapse-label { color: #95758a; font-size: 10px; }
+.individual-awards .collapse-label { display: none; }
+.individual-awards[open] .expand-label { display: none; }
+.individual-awards[open] .collapse-label { display: inline; }
+.details-chevron { transition: transform .2s; }
+.individual-awards[open] .details-chevron { transform: rotate(180deg); }
+.individual-award-content { padding: 0 12px 12px; }
+.individual-award-content h5 { font-size: 14px; color: #94603c; font-weight: 500; margin: 2px 0 8px; }
+.individual-award-content > p { color: var(--muted); font-size: 10px; margin: 0 0 13px; line-height: 1.8; }
+.individual-certificate { padding: 8px; border: 1px solid #efdee7; border-radius: 6px; background: #fff; }
+.individual-certificate > img { aspect-ratio: auto; }
 .oc-layout { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 80px; margin-top: 28px; }
 .oc-copy h3 { font-size: 34px; font-weight: 550; line-height: 1.65; letter-spacing: -.5px; margin: 0 0 16px; }
 .oc-copy h3 > span:first-of-type { color: var(--accent); }
