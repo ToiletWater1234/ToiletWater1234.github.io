@@ -25,3 +25,14 @@ if (copyButton && emailAddress && copyStatus) {
     }
   });
 }
+
+const profileCounter = document.querySelector('[data-profile-counter]');
+const counterFallback = document.querySelector('[data-counter-fallback]');
+if (profileCounter && counterFallback) {
+  const showCounterLink = () => {
+    profileCounter.hidden = true;
+    counterFallback.hidden = false;
+  };
+  profileCounter.addEventListener('error', showCounterLink);
+  if (profileCounter.complete && profileCounter.naturalWidth === 0) showCounterLink();
+}

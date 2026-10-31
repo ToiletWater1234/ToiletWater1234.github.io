@@ -64,6 +64,10 @@
 
 天梯赛只作为一项比赛展示，个人奖项嵌套在对应团队卡片内，默认收起，点击“个人奖项”可以展开或收起。个人证书图片位于团队奖项目录下的 `individual/` 子目录。
 
+各奖项默认使用统一的证书预览比例、标题占位高度和底部操作区；天梯赛的个人奖项入口与赛事介绍并排显示，展开后才增加卡片高度。
+
+首页已嵌入用户提供的 [Moe Counter 访问计数图片](https://count.getloli.com/@my%20GitHub%20profile?theme=booru-lewd&padding=5&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)。图片由外部服务动态提供；加载失败时保留“查看访问计数”链接。
+
 - `index.html`：首页结构与个人资料。
 - `style.css`：颜色、字体和电脑 / 手机布局。
 - `script.js`：复制邮箱与页脚年份。
