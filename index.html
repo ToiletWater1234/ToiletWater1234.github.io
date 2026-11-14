@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#fffafb">
+    <meta name="theme-color" content="#fffdfd">
     <meta name="description" content="六神花露水的个人主页。南京农业大学人工智能专业大二学生，喜欢音乐游戏。">
     <title>六神花露水 · 个人主页</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -37,9 +37,8 @@
       <main id="main">
         <section class="hero" id="home" aria-labelledby="hero-title">
           <div class="hero-copy">
-
-            <p class="home-intro">六神花露水的个人主页</p>
             <h1 id="hero-title">六神花露水</h1>
+            <p class="home-intro">六神花露水的个人主页</p>
             <p class="profile-line">南京农业大学 · 人工智能专业 · 大二</p>
             <p class="hero-description">平时喜欢打音游。</p>
             <div class="hero-actions"><a href="#projects">我的项目</a><a href="mailto:864457207@qq.com">给我发邮件</a></div>
@@ -73,26 +72,34 @@
           <div class="section-heading"><h2 id="projects-title">我的项目</h2></div>
           <div class="project-grid">
             <article class="project-card project-card-featured">
-              <div class="project-topline"><img src="./assets/icons/osu.png" width="35" height="35" alt=""><span class="project-badge">已上线</span></div>
-              <h3>osu! 数据分析</h3>
-              <p class="project-repository">osu-data-analysis</p>
-              <p class="project-description">用来查 BP、对比玩家和查询谱面的网页工具，也做了针对 osu!mania 的结构能力分析。</p>
-              <div class="project-actions"><a class="project-link project-link-primary" href="https://osu-data-analysis.cn/" target="_blank" rel="noopener noreferrer" aria-label="访问 osu! 数据分析网站（在新标签页打开）">访问网站 <span aria-hidden="true">↗</span></a><a class="project-link" href="https://github.com/ToiletWater1234/osu-data-analysis" target="_blank" rel="noopener noreferrer" aria-label="查看 osu-data-analysis 的 GitHub 仓库（在新标签页打开）"><img src="./assets/icons/github.svg" width="16" height="16" alt="">GitHub <span aria-hidden="true">↗</span></a></div>
+              <div class="project-identity">
+                <div class="project-topline"><img src="./assets/icons/osu.png" width="35" height="35" alt=""><span class="project-badge">已上线</span></div>
+                <h3>osu! 数据分析</h3>
+                <p class="project-repository">osu-data-analysis</p>
+              </div>
+              <div class="project-details">
+                <p class="project-description">用来查 BP、对比玩家和查询谱面的网页工具，也做了针对 osu!mania 的结构能力分析。</p>
+                <div class="project-actions"><a class="project-link project-link-primary" href="https://osu-data-analysis.cn/" target="_blank" rel="noopener noreferrer" aria-label="访问 osu! 数据分析网站（在新标签页打开）">访问网站 <span aria-hidden="true">↗</span></a><a class="project-link" href="https://github.com/ToiletWater1234/osu-data-analysis" target="_blank" rel="noopener noreferrer" aria-label="查看 osu-data-analysis 的 GitHub 仓库（在新标签页打开）"><img src="./assets/icons/github.svg" width="16" height="16" alt="">GitHub <span aria-hidden="true">↗</span></a></div>
+              </div>
             </article>
             <article class="project-card">
-              <div class="project-topline"><img src="./assets/icons/github.svg" width="32" height="32" alt=""><span class="project-badge project-badge-muted">GitHub</span></div>
-              <h3>osu! 赛事数据</h3>
-              <p class="project-repository">osu-tournament-data</p>
-              <p class="project-description">把 osu! 多人对局记录和图池 CSV 整理成赛后数据 PPT，生成后可以继续编辑。</p>
-              <p class="project-credit">PPT 模板与 Rating 计算：Old Pigeon</p>
-              <div class="project-actions"><a class="project-link" href="https://github.com/ToiletWater1234/osu-tournament-data" target="_blank" rel="noopener noreferrer" aria-label="查看 osu-tournament-data 的 GitHub 仓库（在新标签页打开）"><img src="./assets/icons/github.svg" width="16" height="16" alt="">查看 GitHub 项目 <span aria-hidden="true">↗</span></a></div>
+              <div class="project-identity">
+                <div class="project-topline"><img src="./assets/icons/github.svg" width="32" height="32" alt=""><span class="project-badge project-badge-muted">GitHub</span></div>
+                <h3>osu! 赛事数据</h3>
+                <p class="project-repository">osu-tournament-data</p>
+              </div>
+              <div class="project-details">
+                <p class="project-description">把 osu! 多人对局记录和图池 CSV 整理成赛后数据 PPT，生成后可以继续编辑。</p>
+                <p class="project-credit">PPT 模板与 Rating 计算：Old Pigeon</p>
+                <div class="project-actions"><a class="project-link" href="https://github.com/ToiletWater1234/osu-tournament-data" target="_blank" rel="noopener noreferrer" aria-label="查看 osu-tournament-data 的 GitHub 仓库（在新标签页打开）"><img src="./assets/icons/github.svg" width="16" height="16" alt="">查看 GitHub 项目 <span aria-hidden="true">↗</span></a></div>
+              </div>
             </article>
           </div>
         </section>
 
         <section class="awards-section" id="awards" aria-labelledby="awards-title">
           <div class="section-heading"><h2 id="awards-title">获奖经历</h2></div>
-          <div class="award-grade" aria-labelledby="sophomore-awards-title">
+          <div class="award-grade award-grade-current" aria-labelledby="sophomore-awards-title">
             <h3 class="award-grade-title" id="sophomore-awards-title">大二</h3>
             <div class="awards-grid">
               <article class="award-card" id="icpc-nanjing-2026-award" data-evidence-status="medal-awaiting-certificate">
