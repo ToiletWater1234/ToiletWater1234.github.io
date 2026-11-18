@@ -10,6 +10,8 @@
   --font: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
   --serif: "Noto Serif CJK SC", "Songti SC", "SimSun", serif;
   --section-space: clamp(2.5rem, 6vw, 4.75rem);
+  --radius: 8px;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 * { box-sizing: border-box; }
@@ -46,6 +48,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 button { font: inherit; }
 [hidden] { display: none !important; }
+
+.skip-link, .toc-close, .toc-links a, .toc-fallback,
+.copy-button, .social-link, .email-card, .copy-status,
+.project-grid, .project-card, .award-card, .certificate-preview,
+.individual-award-content, .oc-layout, .sticker-card a, .interests-layout {
+  border-radius: var(--radius);
+}
 
 .page-shell {
   width: min(100%, 75rem);
@@ -110,7 +119,7 @@ body.toc-open { overflow: hidden; }
   padding: 12px 6px;
   border: 1px solid var(--accent);
   border-left: 0;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
   background: var(--accent);
   color: white;
   cursor: pointer;
@@ -137,6 +146,7 @@ body.toc-open { overflow: hidden; }
   padding: 1.5rem clamp(1rem, 4vw, 2rem);
   border: 0;
   border-right: 1px solid var(--rule);
+  border-radius: 0 var(--radius) var(--radius) 0;
   background: var(--paper);
   color: var(--ink);
   overflow-y: auto;
@@ -144,7 +154,6 @@ body.toc-open { overflow: hidden; }
 }
 
 .toc-drawer::backdrop { background: #39232d55; }
-.toc-drawer[open] { animation: toc-enter 180ms ease-out; }
 
 .toc-header {
   display: flex;
@@ -205,8 +214,6 @@ body.toc-open { overflow: hidden; }
 .toc-fallback summary { color: var(--accent); cursor: pointer; }
 .toc-fallback nav { display: grid; gap: 0.625rem; padding-top: 0.875rem; }
 
-@keyframes toc-enter { from { transform: translateX(-100%); } }
-
 /* Home */
 .hero {
   display: grid;
@@ -258,7 +265,7 @@ body.toc-open { overflow: hidden; }
 
 .hero-actions a:first-child {
   padding-inline: 1rem;
-  border-radius: 4px;
+  border-radius: var(--radius);
   background: var(--accent);
   color: white;
   text-decoration: none;
@@ -284,7 +291,7 @@ body.toc-open { overflow: hidden; }
   height: clamp(18rem, 38vw, 31.25rem);
   overflow: hidden;
   background: var(--rose);
-  border-radius: 46% 46% 3px 3px / 40% 40% 3px 3px;
+  border-radius: 46% 46% var(--radius) var(--radius) / 40% 40% var(--radius) var(--radius);
 }
 
 .art-canvas::before {
@@ -304,6 +311,7 @@ body.toc-open { overflow: hidden; }
   align-self: end;
   object-fit: contain;
   object-position: center bottom;
+  transition: transform 300ms var(--ease-out);
 }
 
 .art-bottomline {
@@ -420,6 +428,7 @@ main > section:not(.hero) {
   gap: 1rem clamp(1.5rem, 5vw, 4rem);
   padding: clamp(1.1rem, 3vw, 2rem) clamp(0.9rem, 3.5vw, 2.5rem);
   border-bottom: 1px solid var(--rule);
+  transition: background-color 180ms ease, border-color 180ms ease;
 }
 
 .project-card-featured { background: var(--wash); }
@@ -657,10 +666,18 @@ main > section:not(.hero) {
   padding: clamp(0.25rem, 1.5vw, 0.75rem);
   background: var(--wash);
   border: 1px solid var(--rule);
+  overflow: hidden;
 }
 
 .sticker-card a:hover { background: var(--rose); }
-.sticker-card img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; }
+.sticker-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  transition: transform 250ms var(--ease-out);
+}
 .sticker-card figcaption { margin-top: 0.4rem; }
 
 /* Interests and footer */
@@ -692,6 +709,91 @@ main > section:not(.hero) {
 .site-footer p { margin: 0; }
 .site-footer a { margin-left: auto; }
 
+/* Brief feedback on the control being used. */
+.copy-button, .hero-actions a:first-child,
+.social-icon, .sticker-card a, .magnetic-button {
+  transition:
+    translate 180ms var(--ease-out),
+    transform 150ms var(--ease-out),
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.magnetic-button {
+  translate: var(--magnet-x, 0px) var(--magnet-y, 0px);
+  overflow: hidden;
+}
+
+.magnetic-button { position: relative; }
+
+.touch-ripple {
+  position: absolute;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border: 2px solid #d77b9f;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: touch-ripple 400ms ease-out both;
+}
+
+@keyframes touch-ripple {
+  from { opacity: 0.75; transform: scale(0.25); }
+  to { opacity: 0; transform: scale(2.6); }
+}
+
+.certificate-preview { transition: border-color 150ms ease; }
+.toc-links a { transition: background-color 150ms ease, color 150ms ease; }
+.project-link > span, .award-source > span, .art-bottomline a > span {
+  display: inline-block;
+  transition: transform 150ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .certificate-preview:hover { border-color: var(--accent); }
+  .project-card:hover { background: #fae5ed; border-color: var(--accent); }
+}
+
+.project-card:focus-within { background: #fae5ed; border-color: var(--accent); }
+
+@keyframes home-copy-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes home-art-in {
+  from { opacity: 0.35; transform: translate(24px, 12px) scale(0.97); }
+  to { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy { animation: home-copy-in 650ms var(--ease-out) backwards; }
+  .hero-character { animation: home-art-in 850ms var(--ease-out) 60ms backwards; }
+
+  .copy-button:active,
+  .hero-actions a:first-child:active, .sticker-card a:active {
+    transform: scale(0.98);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hero-actions a:first-child:hover { transform: translateY(-1px); }
+    .hero-actions a:first-child:active { transform: scale(0.98); }
+    .social-link:hover .social-icon { transform: translateY(-2px); }
+    .art-canvas:hover .hero-character { transform: scale(1.025); }
+    .sticker-card a:hover { transform: translateY(-2px); }
+    .sticker-card a:hover img { transform: scale(1.03); }
+    .sticker-card a:active { transform: scale(0.98); }
+    .project-link:hover > span, .award-source:hover > span,
+    .art-bottomline a:hover > span { transform: translate(2px, -2px); }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (any-pointer: coarse) {
+  .magnetic-button:active,
+  .hero-actions a:first-child:active { transform: scale(0.94); }
+}
+
 @media (max-width: 720px) {
   .page-shell { padding-inline: 48px clamp(1rem, 4vw, 2rem); }
   .toc-toggle { width: 36px; padding-inline: 4px; }
@@ -719,6 +821,7 @@ main > section:not(.hero) {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .toc-drawer[open] { animation: none; }
+  .magnetic-button { translate: none; }
+  .touch-ripple { display: none; }
   .details-chevron { transition: none; }
 }

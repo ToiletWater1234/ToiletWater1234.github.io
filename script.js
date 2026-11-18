@@ -118,3 +118,106 @@ if (tocToggle && tocDrawer && tocClose && typeof tocDrawer.showModal === 'functi
   window.addEventListener('load', queueTocUpdate);
   updateToc();
 }
+
+const magneticControls = [...document.querySelectorAll(
+  '.hero-actions a, .social-link, .project-link, .copy-button, ' +
+  '.art-bottomline a, .award-source, .site-footer a'
+)];
+const magneticPointer = window.matchMedia(
+  '(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)'
+);
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let magneticTarget = null;
+let magneticFrame = 0;
+let pointerPosition = null;
+
+magneticControls.forEach(control => control.classList.add('magnetic-button'));
+
+const releaseMagneticTarget = () => {
+  if (!magneticTarget) return;
+  magneticTarget.style.removeProperty('--magnet-x');
+  magneticTarget.style.removeProperty('--magnet-y');
+  magneticTarget = null;
+};
+
+const resetMagneticControls = () => {
+  window.cancelAnimationFrame(magneticFrame);
+  magneticFrame = 0;
+  pointerPosition = null;
+  releaseMagneticTarget();
+};
+
+const updateMagneticControls = () => {
+  magneticFrame = 0;
+  if (!pointerPosition || !magneticPointer.matches) return;
+
+  const openDialog = document.querySelector('dialog[open]');
+  let nearest = null;
+
+  // Measure the resting position so following the pointer cannot cause drift.
+  for (const control of magneticControls) {
+    if (openDialog && !openDialog.contains(control)) continue;
+    const bounds = control.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) continue;
+    const translation = getComputedStyle(control).translate.split(' ');
+    const currentX = parseFloat(translation[0]) || 0;
+    const currentY = parseFloat(translation[1]) || 0;
+    const dx = pointerPosition.x - (bounds.left + bounds.width / 2 - currentX);
+    const dy = pointerPosition.y - (bounds.top + bounds.height / 2 - currentY);
+    const edgeDistance = Math.hypot(
+      Math.max(Math.abs(dx) - bounds.width / 2, 0),
+      Math.max(Math.abs(dy) - bounds.height / 2, 0)
+    );
+    const distance = edgeDistance + Math.hypot(dx, dy) * 0.001;
+    if (edgeDistance < 40 && (!nearest || distance < nearest.distance)) {
+      nearest = { control, dx, dy, edgeDistance, distance };
+    }
+  }
+
+  if (magneticTarget !== nearest?.control) releaseMagneticTarget();
+  if (!nearest) return;
+
+  magneticTarget = nearest.control;
+  const strength = 1 - nearest.edgeDistance / 40;
+  const centerDistance = Math.hypot(nearest.dx, nearest.dy);
+  const pull = Math.min(0.15, 6 / (centerDistance || 1)) * strength;
+  const x = nearest.dx * pull;
+  const y = nearest.dy * pull;
+  magneticTarget.style.setProperty('--magnet-x', x.toFixed(2) + 'px');
+  magneticTarget.style.setProperty('--magnet-y', y.toFixed(2) + 'px');
+};
+
+document.addEventListener('pointermove', event => {
+  if (event.pointerType !== 'mouse' || !magneticPointer.matches) return;
+  pointerPosition = { x: event.clientX, y: event.clientY };
+  if (!magneticFrame) magneticFrame = window.requestAnimationFrame(updateMagneticControls);
+}, { passive: true });
+
+document.addEventListener('pointerleave', resetMagneticControls);
+document.addEventListener('pointercancel', resetMagneticControls);
+document.addEventListener('keydown', resetMagneticControls);
+document.addEventListener('scroll', resetMagneticControls, { passive: true, capture: true });
+window.addEventListener('resize', resetMagneticControls);
+window.addEventListener('blur', resetMagneticControls);
+magneticPointer.addEventListener('change', resetMagneticControls);
+tocDrawer?.addEventListener('close', resetMagneticControls);
+tocToggle?.addEventListener('click', resetMagneticControls);
+
+document.addEventListener('pointerdown', event => {
+  if (event.pointerType === 'mouse') return;
+  resetMagneticControls();
+  if (reducedMotion.matches || event.button !== 0) return;
+
+  const control = event.target.closest('.magnetic-button');
+  if (!control) return;
+  control.querySelector('.touch-ripple')?.remove();
+  const bounds = control.getBoundingClientRect();
+  const ripple = document.createElement('span');
+  ripple.className = 'touch-ripple';
+  ripple.setAttribute('aria-hidden', 'true');
+  ripple.style.left = event.clientX - bounds.left + 'px';
+  ripple.style.top = event.clientY - bounds.top + 'px';
+  control.append(ripple);
+  ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+  window.setTimeout(() => ripple.remove(), 500);
+}, { passive: true });
