@@ -11,6 +11,21 @@
     <script src="./script.js" defer></script>
   </head>
   <body>
+    <svg class="symbol-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="symbol-flower" viewBox="0 0 100 100">
+          <ellipse cx="50" cy="25" rx="12" ry="25"/><ellipse cx="50" cy="25" rx="12" ry="25" transform="rotate(45 50 50)"/>
+          <ellipse cx="50" cy="25" rx="12" ry="25" transform="rotate(90 50 50)"/><ellipse cx="50" cy="25" rx="12" ry="25" transform="rotate(135 50 50)"/>
+          <ellipse cx="50" cy="25" rx="12" ry="25" transform="rotate(180 50 50)"/><ellipse cx="50" cy="25" rx="12" ry="25" transform="rotate(225 50 50)"/>
+          <ellipse cx="50" cy="25" rx="12" ry="25" transform="rotate(270 50 50)"/><ellipse cx="50" cy="25" rx="12" ry="25" transform="rotate(315 50 50)"/>
+          <circle cx="50" cy="50" r="7" fill="#fffdfd"/>
+        </symbol>
+        <symbol id="symbol-links" viewBox="0 0 24 24"><path d="m9 15 6-6m-5-3 1-1a5 5 0 0 1 7 7l-1 1M7 11l-1 1a5 5 0 0 0 7 7l1-1"/></symbol>
+        <symbol id="symbol-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 4l-4 16"/></symbol>
+        <symbol id="symbol-medal" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8m-4-8v6M9 9h6"/></symbol>
+        <symbol id="symbol-beat" viewBox="0 0 24 24"><path d="M3 10v4m5-9v14m4-17v20m4-16v12m5-8v4"/></symbol>
+      </defs>
+    </svg>
     <a class="skip-link" href="#main">跳转到主要内容</a>
     <button class="toc-toggle" type="button" data-toc-toggle aria-label="展开目录" aria-controls="site-toc" aria-expanded="false" aria-haspopup="dialog" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>目录</span></button>
     <dialog class="toc-drawer" id="site-toc" aria-labelledby="toc-title">
@@ -32,10 +47,12 @@
           <img class="brand-avatar" src="./assets/oc/feitang-portrait.webp" width="35" height="35" alt="">
           <span>六神花露水</span>
         </a>
+        <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#symbol-flower"/></svg>
       </header>
 
       <main id="main">
         <section class="hero" id="home" aria-labelledby="hero-title">
+          <svg class="hero-mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#symbol-flower"/></svg>
           <div class="hero-copy">
             <h1 id="hero-title">六神花露水</h1>
             <p class="home-intro">六神花露水的个人主页</p>
@@ -54,7 +71,7 @@
         </section>
 
         <section class="accounts-section" id="accounts" aria-labelledby="accounts-title">
-          <div class="section-heading"><h2 id="accounts-title">我的账号</h2></div>
+          <div class="section-heading"><svg class="section-symbol" viewBox="0 0 24 24" aria-hidden="true"><use href="#symbol-links"/></svg><h2 id="accounts-title">我的账号</h2></div>
           <nav class="social-links" aria-label="我的非游戏网站账号">
             <a class="social-link" href="https://github.com/ToiletWater1234" target="_blank" rel="noopener noreferrer" aria-label="我的 GitHub 主页（在新标签页打开）"><span class="social-icon"><img src="./assets/icons/github.svg" width="32" height="32" alt=""></span><span>GitHub</span></a>
             <a class="social-link" href="https://space.bilibili.com/496872941" target="_blank" rel="noopener noreferrer" aria-label="我的 Bilibili 主页（在新标签页打开）"><span class="social-icon"><img src="./assets/icons/bilibili.ico" width="32" height="32" alt=""></span><span>Bilibili</span></a>
@@ -69,9 +86,18 @@
         </section>
 
         <section class="projects-section" id="projects" aria-labelledby="projects-title">
-          <div class="section-heading"><h2 id="projects-title">我的项目</h2></div>
+          <div class="section-heading"><svg class="section-symbol" viewBox="0 0 24 24" aria-hidden="true"><use href="#symbol-code"/></svg><h2 id="projects-title">我的项目</h2></div>
           <div class="project-grid">
             <article class="project-card project-card-featured">
+              <div class="project-visual" aria-hidden="true">
+                <svg viewBox="0 0 480 170" fill="none">
+                  <path class="visual-frame" d="M58 47H38v76h20m364-76h20v76h-20"/>
+                  <circle class="visual-orbit" cx="138" cy="85" r="51"/><circle class="visual-orbit" cx="138" cy="85" r="36"/>
+                  <path class="visual-beat" d="M116 85h9l7-20 10 42 9-22h9"/>
+                  <path class="visual-bars" d="M228 104V87m28 17V60m28 44V76m28 28V43m28 61V66m28 38V53"/>
+                  <path class="visual-baseline" d="M209 123h180"/>
+                </svg>
+              </div>
               <div class="project-identity">
                 <div class="project-topline"><img src="./assets/icons/osu.png" width="35" height="35" alt=""><span class="project-badge">已上线</span></div>
                 <h3>osu! 数据分析</h3>
@@ -83,6 +109,15 @@
               </div>
             </article>
             <article class="project-card">
+              <div class="project-visual project-visual-slides" aria-hidden="true">
+                <svg viewBox="0 0 480 170" fill="none">
+                  <rect class="visual-back" x="150" y="24" width="195" height="111" rx="8"/>
+                  <rect class="visual-slide" x="127" y="38" width="195" height="111" rx="8"/>
+                  <path class="visual-baseline" d="M148 61h153M213 77v49m-65-1h46m-46-12h46m-46-12h31"/>
+                  <path class="visual-beat" d="M231 115h12l10-25 14 33 12-18h20"/>
+                  <path class="visual-frame" d="m69 70-15 15 15 15m342-30 15 15-15 15"/>
+                </svg>
+              </div>
               <div class="project-identity">
                 <div class="project-topline"><img src="./assets/icons/github.svg" width="32" height="32" alt=""><span class="project-badge project-badge-muted">GitHub</span></div>
                 <h3>osu! 赛事数据</h3>
@@ -98,7 +133,7 @@
         </section>
 
         <section class="awards-section" id="awards" aria-labelledby="awards-title">
-          <div class="section-heading"><h2 id="awards-title">获奖经历</h2></div>
+          <div class="section-heading"><svg class="section-symbol" viewBox="0 0 24 24" aria-hidden="true"><use href="#symbol-medal"/></svg><h2 id="awards-title">获奖经历</h2></div>
           <div class="award-grade award-grade-current" aria-labelledby="sophomore-awards-title">
             <h3 class="award-grade-title" id="sophomore-awards-title">大二</h3>
             <div class="awards-grid">
@@ -143,8 +178,9 @@
         </section>
 
         <section class="oc-section" id="oc" aria-labelledby="oc-title">
-          <div class="section-heading"><h2 id="oc-title">OC 介绍</h2></div>
+          <div class="section-heading"><svg class="section-symbol section-symbol-flower" viewBox="0 0 100 100" aria-hidden="true"><use href="#symbol-flower"/></svg><h2 id="oc-title">OC 介绍</h2></div>
           <div class="oc-layout">
+            <svg class="oc-mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#symbol-flower"/></svg>
             <div class="oc-copy">
               <h3>绯棠</h3>
               <p class="oc-pronunciation">也叫棠棠</p>
@@ -166,7 +202,7 @@
         </section>
 
         <section class="interests-section" id="interests" aria-labelledby="interests-title">
-          <div class="section-heading interests-heading"><h2 id="interests-title">兴趣爱好</h2></div>
+          <div class="section-heading interests-heading"><svg class="section-symbol" viewBox="0 0 24 24" aria-hidden="true"><use href="#symbol-beat"/></svg><h2 id="interests-title">兴趣爱好</h2></div>
           <div class="interests-layout"><div class="interests-copy"><h3>音乐游戏</h3><p>Welcome to osu!</p></div>
           <div class="game-accounts"><a class="social-link game-link" href="https://osu.ppy.sh/users/35851725" target="_blank" rel="noopener noreferrer" aria-label="我的 osu! 主页（在新标签页打开）"><span class="social-icon"><img src="./assets/icons/osu.png" width="60" height="60" alt=""></span><span>osu!</span></a></div></div>
         </section>
