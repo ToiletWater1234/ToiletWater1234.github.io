@@ -375,7 +375,7 @@ body.toc-open { overflow: hidden; }
   font: 700 1.15rem var(--serif);
 }
 
-.art-bottomline a, .award-source, .site-footer a {
+.art-bottomline a, .award-team a, .award-source, .site-footer a {
   color: var(--accent);
   text-decoration: underline;
 }
