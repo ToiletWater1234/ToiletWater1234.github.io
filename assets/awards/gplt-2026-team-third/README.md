@@ -5,16 +5,16 @@
 - 参赛学校：南京农业大学。
 - 网页展示队名：666，还有第二关
 - 组别：华山论剑。
-- 个人奖项：杨家斌，全国总决赛个人三等奖。
+- 个人奖项：全国总决赛个人三等奖。
 - 证书签发日期：2026年5月6日。
 - 比赛日期：2026年4月18日，用于网页按比赛时间排序。
 - 官方介绍：[团体程序设计天梯赛官网](https://gplt.patest.cn/)，可查看竞赛通知、竞赛规程和奖项设置。介绍来源不再使用其他参赛院校的获奖新闻。
 
 ## 文件对应关系
 
-- `team-certificate.png`：用户提供的 `CCCC2026GPLT00920` 团队三等奖单页 PDF 的完整渲染图。
-- `team-certificate.webp`：团队证书的网页缩略图。
-- `individual/yang-jiabin-third.png`：用户提供的 `CCCC2026GPLT07278` 个人三等奖单页 PDF 的完整渲染图。
-- `individual/yang-jiabin-third.webp`：个人证书的网页缩略图。
+- `team-certificate.enc` 保存团队三等奖证书的加密原图。
+- `team-certificate.webp` 是团队证书的打码缩略图。
+- `individual/individual-certificate.enc` 保存个人三等奖证书的加密原图。
+- `individual/individual-certificate.webp` 是个人证书的打码缩略图。
 
-个人图片保存在团队目录的 `individual/` 子目录。网页将其放在该团队卡片内的折叠区中，默认不展开；点击“个人奖项”展开后可以查看证书和打开大图。原始 PDF 不改动。
+个人证书放在对应团队奖项内，点击“个人奖项”可展开打码缩略图。完整证书通过网页的姓名输入框解锁。

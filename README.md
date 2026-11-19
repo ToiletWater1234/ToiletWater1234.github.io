@@ -48,15 +48,15 @@
 
 | 比赛 | 奖项 | 证书 |
 |---|---|---|
-| 2026年中国大学生程序设计竞赛（CCPC）全国邀请赛（南昌） | 团队铜奖 | [查看证书](./assets/awards/ccpc-nanchang-2026-bronze.jpg) |
-| 2026年国际大学生程序设计竞赛（ICPC）全国邀请赛（西安） | 团队铜奖 | [查看证书](./assets/awards/icpc-shaanxi-2026-bronze.png) |
-| 2026年中国高校计算机大赛—团体程序设计天梯赛全国总决赛 | 团队三等奖 | [查看团队证书](./assets/awards/gplt-2026-team-third/team-certificate.png) |
-| 2026年国际大学生程序设计竞赛（ICPC）全国邀请赛（深圳） | 团队铜奖 | [查看证书](./assets/awards/icpc-shenzhen-2026-bronze.png) |
+| 2026年中国大学生程序设计竞赛（CCPC）全国邀请赛（南昌） | 团队铜奖 | [打码预览](./assets/awards/ccpc-nanchang-2026-bronze.webp) |
+| 2026年国际大学生程序设计竞赛（ICPC）全国邀请赛（西安） | 团队铜奖 | [打码预览](./assets/awards/icpc-shaanxi-2026-bronze.webp) |
+| 2026年中国高校计算机大赛—团体程序设计天梯赛全国总决赛 | 团队三等奖 | [团队证书打码预览](./assets/awards/gplt-2026-team-third/team-certificate.webp) |
+| 2026年国际大学生程序设计竞赛（ICPC）全国邀请赛（深圳） | 团队铜奖 | [打码预览](./assets/awards/icpc-shenzhen-2026-bronze.webp) |
 
 <details>
 <summary>天梯赛团队奖项下的个人奖项</summary>
 
-杨家斌获得全国总决赛个人三等奖。[查看个人证书](./assets/awards/gplt-2026-team-third/individual/yang-jiabin-third.png)。
+全国总决赛个人三等奖。[个人证书打码预览](./assets/awards/gplt-2026-team-third/individual/individual-certificate.webp)。
 
 </details>
 
@@ -72,6 +72,8 @@
 
 天梯赛只作为一项比赛展示，个人奖项嵌套在对应团队卡片内，默认收起，点击“个人奖项”可以展开或收起。个人证书图片位于团队奖项目录下的 `individual/` 子目录。
 
+点击网页上的证书预览可输入姓名，在浏览器中解锁完整原图。本地验证解锁功能时，请通过本地 HTTP 服务访问主页。
+
 各奖项默认使用统一的证明材料预览比例、标题占位高度和底部操作区；天梯赛的个人奖项入口与官方介绍并排显示，展开后才增加卡片高度。
 
 奖项卡片的介绍入口统一标为“官方介绍”：三场邀请赛使用承办学校发布的报道、说明或承办方出具的正式邀请函；天梯赛直接使用赛事官网。西安邀请函由西北工业大学计算机学院等承办方出具，原文由 ICPC 北京总部公开发布；链接提示中标明了发布位置。
@@ -81,6 +83,7 @@
 - `index.html`：首页结构与个人资料。
 - `style.css`：颜色、字体和电脑 / 手机布局。
 - `script.js`：抽屉目录、当前章节提示、复制邮箱与页脚年份。
+- `certificate-viewer.js`：证书解锁与浏览器端解密。
 - `favicon.svg`：浏览器标签页图标。
 - `assets/`：绯棠立绘、表情包和网站图标，发布时需完整上传。
 - `.nojekyll`：按静态文件发布。

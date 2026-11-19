@@ -9,6 +9,7 @@
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
+    <script src="./certificate-viewer.js" defer></script>
   </head>
   <body>
     <svg class="symbol-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -23,6 +24,7 @@
         <symbol id="symbol-links" viewBox="0 0 24 24"><path d="m9 15 6-6m-5-3 1-1a5 5 0 0 1 7 7l-1 1M7 11l-1 1a5 5 0 0 0 7 7l1-1"/></symbol>
         <symbol id="symbol-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 4l-4 16"/></symbol>
         <symbol id="symbol-medal" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8m-4-8v6M9 9h6"/></symbol>
+        <symbol id="symbol-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3"/></symbol>
         <symbol id="symbol-beat" viewBox="0 0 24 24"><path d="M3 10v4m5-9v14m4-17v20m4-16v12m5-8v4"/></symbol>
       </defs>
     </svg>
@@ -39,6 +41,21 @@
         <a href="#interests">兴趣爱好</a>
       </nav>
       <p class="toc-signature">六神花露水</p>
+    </dialog>
+    <dialog class="certificate-dialog" id="certificate-dialog" aria-labelledby="certificate-dialog-title">
+      <div class="certificate-dialog-header">
+        <h2 id="certificate-dialog-title">查看完整证书</h2>
+        <button class="toc-close" type="button" data-certificate-close aria-label="关闭证书">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <form class="certificate-form">
+        <label for="certificate-name">六神花露水的真实姓名</label>
+        <input id="certificate-name" type="password" required autofocus autocomplete="off" maxlength="64">
+        <button type="submit">解锁证书</button>
+      </form>
+      <p class="certificate-status" role="status"></p>
+      <img class="certificate-full" alt="完整获奖证书" hidden>
     </dialog>
     <noscript><details class="toc-fallback"><summary>目录</summary><nav aria-label="页面目录"><a href="#home">基本信息</a><a href="#accounts">我的账号</a><a href="#projects">我的项目</a><a href="#awards">获奖经历</a><a href="#oc">绯棠</a><a href="#interests">兴趣爱好</a></nav></details></noscript>
     <div class="page-shell">
@@ -153,7 +170,7 @@
             <h3 class="award-grade-title" id="freshman-awards-title">大一</h3>
             <div class="awards-grid">
               <article class="award-card">
-                <a class="certificate-preview" href="./assets/awards/ccpc-nanchang-2026-bronze.jpg" target="_blank" rel="noopener noreferrer" aria-label="查看2026年CCPC全国邀请赛（南昌）铜奖团队证书大图（在新标签页打开）"><img src="./assets/awards/ccpc-nanchang-2026-bronze.webp" width="1100" height="780" loading="lazy" alt="2026年中国大学生程序设计竞赛全国邀请赛（南昌）铜奖团队证书。"><span>查看证书 <span aria-hidden="true">↗</span></span></a>
+                <button class="certificate-preview" type="button" data-certificate="./assets/awards/ccpc-nanchang-2026-bronze.enc" aria-haspopup="dialog" aria-controls="certificate-dialog" aria-label="查看2026年CCPC全国邀请赛（南昌）铜奖团队完整证书"><img src="./assets/awards/ccpc-nanchang-2026-bronze.webp" width="1100" height="780" loading="lazy" alt="2026年中国大学生程序设计竞赛全国邀请赛（南昌）铜奖团队证书。"><span>查看证书 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#symbol-lock"/></svg></span></button>
                 <div class="award-body">
                   <div class="award-meta"><time datetime="2026-05-24">2026.05.24 · 南昌</time><strong class="award-prize">铜奖</strong></div>
                   <h4>2026年中国大学生程序设计竞赛（CCPC）全国邀请赛（南昌）</h4>
@@ -163,11 +180,11 @@
                 </div>
               </article>
               <article class="award-card">
-                <a class="certificate-preview" href="./assets/awards/icpc-shaanxi-2026-bronze.png" target="_blank" rel="noopener noreferrer" aria-label="查看2026年ICPC全国邀请赛（西安）铜奖团队证书大图（在新标签页打开）"><img src="./assets/awards/icpc-shaanxi-2026-bronze.webp" width="1100" height="778" loading="lazy" alt="在西安举办的2026年ICPC全国邀请赛铜奖团队证书，官方赛名为陕西全国邀请赛。"><span>查看证书 <span aria-hidden="true">↗</span></span></a>
+                <button class="certificate-preview" type="button" data-certificate="./assets/awards/icpc-shaanxi-2026-bronze.enc" aria-haspopup="dialog" aria-controls="certificate-dialog" aria-label="查看2026年ICPC全国邀请赛（西安）铜奖团队完整证书"><img src="./assets/awards/icpc-shaanxi-2026-bronze.webp" width="1100" height="778" loading="lazy" alt="在西安举办的2026年ICPC全国邀请赛铜奖团队证书，官方赛名为陕西全国邀请赛。"><span>查看证书 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#symbol-lock"/></svg></span></button>
                 <div class="award-body"><div class="award-meta"><time datetime="2026-05-02">2026.05.02 · 西安</time><strong class="award-prize">铜奖</strong></div><h4>2026年国际大学生程序设计竞赛（ICPC）全国邀请赛（西安）</h4><p class="award-team">三缺一不可 / <span lang="en">Alll for one</span> · 团队奖项</p><p class="award-evidence-note">证书已收录</p><a class="award-source" href="https://icpc.pku.edu.cn/docs/2026-03/b165028b876f4a99a5d5f961478bd21c.pdf" target="_blank" rel="noopener noreferrer" title="西北工业大学计算机学院、陕西省计算机教育学会 · 官方邀请函（PDF，由ICPC北京总部公开发布）" aria-label="查看西北工业大学计算机学院等承办方出具的官方邀请函PDF（在新标签页打开）">官方介绍 <span aria-hidden="true">↗</span></a></div>
               </article>
               <article class="award-card" id="gplt-2026-award">
-                <a class="certificate-preview" href="./assets/awards/gplt-2026-team-third/team-certificate.png" target="_blank" rel="noopener noreferrer" aria-label="查看2026年团体程序设计天梯赛全国总决赛团队三等奖证书大图（在新标签页打开）"><img src="./assets/awards/gplt-2026-team-third/team-certificate.webp" width="1100" height="1449" loading="lazy" alt="2026年中国高校计算机大赛—团体程序设计天梯赛全国总决赛团队三等奖证书，南京农业大学，华山论剑组。"><span>查看团队证书 <span aria-hidden="true">↗</span></span></a>
+                <button class="certificate-preview" type="button" data-certificate="./assets/awards/gplt-2026-team-third/team-certificate.enc" aria-haspopup="dialog" aria-controls="certificate-dialog" aria-label="查看2026年团体程序设计天梯赛全国总决赛团队三等奖完整证书"><img src="./assets/awards/gplt-2026-team-third/team-certificate.webp" width="1100" height="1449" loading="lazy" alt="2026年中国高校计算机大赛—团体程序设计天梯赛全国总决赛团队三等奖证书，南京农业大学，华山论剑组。"><span>查看团队证书 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#symbol-lock"/></svg></span></button>
                 <div class="award-body">
                   <div class="award-meta"><time datetime="2026-04-18">2026.04.18 · 全国总决赛</time><strong class="award-prize">团队三等奖</strong></div>
                   <h4>2026年中国高校计算机大赛—团体程序设计天梯赛全国总决赛</h4>
@@ -176,13 +193,13 @@
                   <a class="award-source" href="https://gplt.patest.cn/" target="_blank" rel="noopener noreferrer" title="团体程序设计天梯赛 · 赛事官网" aria-label="查看团体程序设计天梯赛官网（在新标签页打开）">官方介绍 <span aria-hidden="true">↗</span></a>
                   <details class="individual-awards">
                     <summary><span>个人奖项</span><span class="expand-label">展开</span><span class="collapse-label">收起</span><svg class="details-chevron" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
-                    <div class="individual-award-content"><h5>个人三等奖</h5><p>杨家斌 · 全国总决赛</p><a class="certificate-preview individual-certificate" href="./assets/awards/gplt-2026-team-third/individual/yang-jiabin-third.png" target="_blank" rel="noopener noreferrer" aria-label="查看杨家斌的天梯赛全国总决赛个人三等奖证书大图（在新标签页打开）"><img src="./assets/awards/gplt-2026-team-third/individual/yang-jiabin-third.webp" width="1100" height="1449" loading="lazy" alt="杨家斌在2026年中国高校计算机大赛—团体程序设计天梯赛全国总决赛中获得个人三等奖的证书。"><span>查看个人证书 <span aria-hidden="true">↗</span></span></a></div>
+                    <div class="individual-award-content"><h5>个人三等奖</h5><p>全国总决赛</p><button class="certificate-preview individual-certificate" type="button" data-certificate="./assets/awards/gplt-2026-team-third/individual/individual-certificate.enc" aria-haspopup="dialog" aria-controls="certificate-dialog" aria-label="查看天梯赛全国总决赛个人三等奖完整证书"><img src="./assets/awards/gplt-2026-team-third/individual/individual-certificate.webp" width="1100" height="1449" loading="lazy" alt="2026年中国高校计算机大赛—团体程序设计天梯赛全国总决赛个人三等奖证书预览。"><span>查看个人证书 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#symbol-lock"/></svg></span></button></div>
                   </details>
                   </div>
                 </div>
               </article>
               <article class="award-card">
-                <a class="certificate-preview" href="./assets/awards/icpc-shenzhen-2026-bronze.png" target="_blank" rel="noopener noreferrer" aria-label="查看2026年ICPC全国邀请赛（深圳）铜奖团队证书大图（在新标签页打开）"><img src="./assets/awards/icpc-shenzhen-2026-bronze.webp" width="1100" height="778" loading="lazy" alt="2026年国际大学生程序设计竞赛全国邀请赛（深圳）铜奖团队证书。"><span>查看证书 <span aria-hidden="true">↗</span></span></a>
+                <button class="certificate-preview" type="button" data-certificate="./assets/awards/icpc-shenzhen-2026-bronze.enc" aria-haspopup="dialog" aria-controls="certificate-dialog" aria-label="查看2026年ICPC全国邀请赛（深圳）铜奖团队完整证书"><img src="./assets/awards/icpc-shenzhen-2026-bronze.webp" width="1100" height="778" loading="lazy" alt="2026年国际大学生程序设计竞赛全国邀请赛（深圳）铜奖团队证书。"><span>查看证书 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#symbol-lock"/></svg></span></button>
                 <div class="award-body">
                   <div class="award-meta"><time datetime="2026-04-11">2026.04.11 · 深圳</time><strong class="award-prize">铜奖</strong></div>
                   <h4>2026年国际大学生程序设计竞赛（ICPC）全国邀请赛（深圳）</h4>

@@ -13,7 +13,7 @@
 - 来源：用户提供的 `IMG_20261108_163751.jpg`，原图保持不变。照片标有比赛名称、铜奖、承办单位南京航空航天大学及比赛日期。
 - [第51届南京区域赛官方邀请函与报名指南](https://icpc.pku.edu.cn/tzgg/1fb98fa9d73a476b853c348bd8dabed3.htm)：由 ICPC 北京总部发布。没有使用往届赛事报道。
 - JPG 为完整比例的大图副本；WebP 为预览副本，均只缩放和压缩，不裁切或改写奖牌内容。
-- 后续替换证书时，更新 `index.html` 中 `icpc-nanjing-2026-award` 的证明材料、图片说明及待发状态。
+- 后续替换证书时，给证书制作打码预览并加密完整图片，再更新 `index.html` 中 `icpc-nanjing-2026-award` 的证明材料、图片说明及待发状态。
 
 ## 大一
 
@@ -26,11 +26,11 @@
 
 ## 图片处理
 
-- `icpc-shaanxi-2026-bronze.png`：仅渲染 `1.pdf` 的最后一页，即第5页。前4页不用于网站，也不随网站发布。
-- `icpc-shenzhen-2026-bronze.png`：渲染深圳团队证书的唯一一页。原文件名虽带“2027”，证书实际日期为“11 April 2026”，与主办方报道一致，展示采用2026年。
-- `ccpc-nanchang-2026-bronze.jpg`：用户提供的南昌团队证书图片副本，保留原始内容。
-- 同名 `.webp` 为网页缩略图，只缩小尺寸和转换格式，不裁掉证书内容，不改动证书文字。点击缩略图可打开完整 PNG/JPG 图片。
+- `icpc-shaanxi-2026-bronze.enc` 对应 `1.pdf` 的最后一页，即第5页。
+- `icpc-shenzhen-2026-bronze.enc` 对应深圳团队证书的唯一一页。证书实际日期为“11 April 2026”，与主办方报道一致。
+- `ccpc-nanchang-2026-bronze.enc` 对应用户提供的南昌团队证书图片。
+- 同名 `.webp` 缩略图以实色遮盖个人姓名和签名。南昌证书预览也遮盖了二维码。
 
-原始 PDF 和原始 JPG 文件保持不变。
+完整图片以 AES-256-GCM 加密。文件依次保存 16 字节随机盐、12 字节随机 IV、密文和 16 字节认证标签。浏览器使用 PBKDF2-HMAC-SHA-256（600,000 次迭代）从输入的姓名派生密钥。
 
-天梯赛证书为单页竖版 PDF，完整渲染为 PNG，缩略图转存为 WebP；个人证书位于 `gplt-2026-team-third/individual/`。网页采用原生 `details/summary` 实现默认收起和点击展开，无需 JavaScript。
+天梯赛证书为单页竖版 PDF，原图渲染为 PNG 后加密。个人证书位于 `gplt-2026-team-third/individual/`，网页通过 `details/summary` 展开个人奖项。
